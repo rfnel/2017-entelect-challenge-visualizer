@@ -1,7 +1,7 @@
 package za.co.rfn;
 
 import za.co.rfn.ui.VisualizerPanel;
-import za.co.rfn.ui.VisualizerRunner;
+import za.co.rfn.ui.VisualizerController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,9 +35,9 @@ public class Visualizer {
 
         gameFrame.setVisible(true);
 
-        VisualizerRunner visualizerRunner = new VisualizerRunner(player1VisualizerPanel, player2VisualizerPanel, player1VisualizerLabel, player2VisualizerLabel);
-        visualizerRunner.setGameDirectory(args[0]);
-        visualizerRunner.run();
+        VisualizerController visualizerController = new VisualizerController(gameFrame, player1VisualizerPanel, player2VisualizerPanel, player1VisualizerLabel, player2VisualizerLabel);
+        visualizerController.loadMatch(args[0]);
+        visualizerController.run();
     }
 
 }
