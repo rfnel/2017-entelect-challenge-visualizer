@@ -50,10 +50,10 @@ public class VisualizerRunner implements Runnable {
             player2VisualizerPanel.updateGameState(roundState);
 
             BattleshipPlayer player1 = roundState.Player1Map.Owner;
-            player1VisualizerLabel.setText("Name: " + player1.Name + ", Points: " + player1.Points + ", Round: " + roundState.Round);
+            player1VisualizerLabel.setText("Name: " + player1.Name + ", Points: " + player1.Points + ", Shots: " + player1.ShotsFired + ", Round: " + roundState.Round);
 
             BattleshipPlayer player2 = roundState.Player2Map.Owner;
-            player2VisualizerLabel.setText("Name: " + player2.Name + ", Points: " + player2.Points + ", Round: " + roundState.Round);
+            player2VisualizerLabel.setText("Name: " + player2.Name + ", Points: " + player2.Points + ", Shots: " + player2.ShotsFired + ", Round: " + roundState.Round);
 
             try {
                 Thread.sleep(500);

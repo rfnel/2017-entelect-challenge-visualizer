@@ -2,6 +2,9 @@ package za.co.rfn.ui;
 
 import za.co.entelect.domain.state.Cell;
 import za.co.entelect.domain.state.GameState;
+import za.co.entelect.domain.state.PlayerMap;
+import za.co.entelect.domain.state.Ship;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.List;
@@ -40,10 +43,13 @@ public class VisualizerPanel extends JPanel {
             int cellWidth = getWidth() / gameState.MapDimension;
 
             List<Cell> cells = null;
+            PlayerMap playerMap = null;
             if (target == Target.PLAYER1) {
                 cells = gameState.Player1Map.Cells;
+                playerMap = gameState.Player1Map;
             } else if (target == Target.PLAYER2) {
                 cells = gameState.Player2Map.Cells;
+                playerMap = gameState.Player2Map;
             }
 
             for (Cell cell : cells) {
@@ -55,6 +61,10 @@ public class VisualizerPanel extends JPanel {
                 if (cell.Occupied) {
                     g.setColor(SHIP);
                     g.fillRect(x + 1, y + 1, cellWidth - 1, cellHeight - 1);
+
+                    String ship = getShip(cell, playerMap);
+                    g.setColor(Color.BLACK);
+                    g.drawString(ship, x + 1, y + 24);
                 } else {
                     g.setColor(WATER);
                     g.fillRect(x + 1, y + 1, cellWidth - 1, cellHeight - 1);
@@ -76,5 +86,17 @@ public class VisualizerPanel extends JPanel {
                 g.drawString(cell.Y + ":" + cell.X, x + 1, y + 12);
             }
         }
+    }
+
+    private String getShip(Cell cell, PlayerMap playerMap) {
+        for (Ship ship : playerMap.Owner.Ships) {
+            for (Cell shipCell : ship.Cells) {
+                if (cell.Y == shipCell.Y && cell.X == shipCell.X) {
+                    return ship.ShipType.toString().substring(0, 2);
+                }
+            }
+        }
+
+        return null;
     }
 }
