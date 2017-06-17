@@ -9,3 +9,6 @@ This is not well-tested, production-ready code - it's just a morning's worth of 
 
 Build: mvn clean install
 Run: java -cp Visualizer.jar;lib\* za.co.rfn.Visualizer "<path to dir>"
+
+# Thanks 
+Thanks to bhaeussermann for adding functionality to pause the Visualiser (with the Enter key) and use the arrow keys to navigate between rounds.
