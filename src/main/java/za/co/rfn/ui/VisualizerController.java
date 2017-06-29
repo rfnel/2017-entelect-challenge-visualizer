@@ -127,17 +127,17 @@ public class VisualizerController {
         }
     }
     
-    private void refreshDisplay()
-    {
+    private void refreshDisplay() {
         GameState roundState = roundStates.get(currentRound);
         player1VisualizerPanel.updateGameState(roundState);
         player2VisualizerPanel.updateGameState(roundState);
 
+        //TODO:  Add energy.
         BattleshipPlayer player1 = roundState.Player1Map.Owner;
-        player1VisualizerLabel.setText("Name: " + player1.Name + ", Points: " + player1.Points + ", Round: " + roundState.Round);
+        player1VisualizerLabel.setText("Name: " + player1.Name + ", Energy: " + player1.Energy + ", Points: " + player1.Points + ", Round: " + roundState.Round);
 
         BattleshipPlayer player2 = roundState.Player2Map.Owner;
-        player2VisualizerLabel.setText("Name: " + player2.Name + ", Points: " + player2.Points + ", Round: " + roundState.Round);
+        player2VisualizerLabel.setText("Name: " + player2.Name + ", Energy: " + player2.Energy + ", Points: " + player2.Points + ", Round: " + roundState.Round);
     }
 
     private GameState loadRoundState(String directory) {
