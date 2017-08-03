@@ -5,6 +5,7 @@ import java.awt.*;
 public class Cell {
 
     public boolean Occupied;
+    public boolean Shielded;
 
     public boolean Hit;
 

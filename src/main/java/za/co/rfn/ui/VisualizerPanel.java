@@ -20,6 +20,7 @@ public class VisualizerPanel extends JPanel {
     private GameState gameState;
 
     private static final Color WATER = new Color(0, 100, 255);
+    private static final Color SHIELDED = Color.YELLOW;
     private static final Color SHIP = Color.GRAY;
     private static final Color MISS = Color.WHITE;
     private static final Color HIT = Color.RED;
@@ -65,6 +66,9 @@ public class VisualizerPanel extends JPanel {
                     String ship = getShip(cell, playerMap);
                     g.setColor(Color.BLACK);
                     g.drawString(ship, x + 1, y + 24);
+                } else if (cell.Shielded) {
+                    g.setColor(SHIELDED);
+                    g.fillRect(x + 1, y + 1, cellWidth - 1, cellHeight - 1);
                 } else {
                     g.setColor(WATER);
                     g.fillRect(x + 1, y + 1, cellWidth - 1, cellHeight - 1);

@@ -132,7 +132,6 @@ public class VisualizerController {
         player1VisualizerPanel.updateGameState(roundState);
         player2VisualizerPanel.updateGameState(roundState);
 
-        //TODO:  Add energy.
         BattleshipPlayer player1 = roundState.Player1Map.Owner;
         player1VisualizerLabel.setText("Name: " + player1.Name + ", Energy: " + player1.Energy + ", Points: " + player1.Points + ", Round: " + roundState.Round);
 
